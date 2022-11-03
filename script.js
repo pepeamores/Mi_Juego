@@ -1,17 +1,17 @@
 //cargo en un arreglo las imganes de las banderas. Este sera el orden que se mostrarán
-let banderas = ["Hola", "bo.svg", "ad.svg", "gb.svg", "na.svg"];
+let preguntas = ["pregunta1.PNG", "pregunta2.PNG", "pregunta3.PNG", "pregunta4.PNG", "pregunta5.PNG"];
 
 //arreglo que guardara la opcion correcta
-let correcta = [2,2,1,1,0];
+let correcta = [1,1,2,0,0];
 
 //arreglo que guardara los paises a mostrar en cada jugada
 let opciones = [];
 //cargo en el arreglo opciones las opciones a mostrar en cada jugada
-opciones.push(["SUDAFRICA", "SINGAPUR", "PANAMA"]);
-opciones.push(["PERU", "ITALIA", "BOLIVIA"]);
-opciones.push(["TUNEZ", "ANDORRA", "ANTIGUA Y BARBUDA"]);
-opciones.push(["UCRANIA", "REINO UNIDO", "MADAGASCAR"]);
-opciones.push(["NAMIBIA", "OMAN", "ETIOPIA"]);
+opciones.push(["Huelva", "Sevilla", "Malaga"]);
+opciones.push(["21", "22", "24"]);
+opciones.push(["Juego de Tronos", "Vikingos", "Peaky Blinders"]);
+opciones.push(["Futbol", "Baloncesto", "Tenis"]);
+opciones.push(["Sevilla FC", "Barcelona", "Madrid"]);
 
 //variable que guarda la posicion actual
 let posActual = 0;
@@ -25,21 +25,21 @@ function comenzarJuego(){
     //activamos las pantallas necesarias
     document.getElementById("pantalla-inicial").style.display = "none";
     document.getElementById("pantalla-juego").style.display = "block";
-    cargarBandera();
+    cargarPregunta();
 
 }
 
 //funcion que carga la siguiente bandera y sus opciones
-function cargarBandera(){
+function cargarPregunta(){
     //controlo sis se acabaron las banderas
-    if(banderas.length <= posActual){
+    if(preguntas.length <= posActual){
         terminarJuego();
     }
     else{//cargo las opciones
         //limpiamos las clases que se asignaron
         limpiarOpciones();
 
-        document.getElementById("imgBandera").src = "img/" + banderas[posActual];
+        document.getElementById("imagen").src = "img/" + preguntas[posActual];
         document.getElementById("n0").innerHTML = opciones[posActual][0];
         document.getElementById("n1").innerHTML = opciones[posActual][1];
         document.getElementById("n2").innerHTML = opciones[posActual][2];
@@ -55,7 +55,6 @@ function limpiarOpciones(){
     document.getElementById("l1").className = "letra";
     document.getElementById("l2").className = "letra";
 }
-
 function comprobarRespuesta(opElegida){
     if(opElegida==correcta[posActual]){//acertó
         //agregamos las clases para colocar el color verde a la opcion elegida
@@ -63,6 +62,7 @@ function comprobarRespuesta(opElegida){
         document.getElementById("l" + opElegida).className = "letra letraAcertada";
         cantidadAcertadas++;
     }else{//no acerto
+        lives--;
         //agramos las clases para colocar en rojo la opcion elegida
         document.getElementById("n" + opElegida).className = "nombre nombreNoAcertada";
         document.getElementById("l" + opElegida).className = "letra letraNoAcertada";
@@ -73,7 +73,7 @@ function comprobarRespuesta(opElegida){
     }
     posActual++;
     //Esperamos 1 segundo y pasamos mostrar la siguiente bandera y sus opciones
-    setTimeout(cargarBandera,1000);
+    setTimeout(cargarPregunta,1000);
 }
 function terminarJuego(){
     //ocultamos las pantallas y mostramos la pantalla final
@@ -81,7 +81,7 @@ function terminarJuego(){
     document.getElementById("pantalla-final").style.display = "block";
     //agreamos los resultados
     document.getElementById("numCorrectas").innerHTML = cantidadAcertadas;
-    document.getElementById("numIncorrectas").innerHTML = banderas.length - cantidadAcertadas;
+    document.getElementById("numIncorrectas").innerHTML = preguntas.length - cantidadAcertadas;
 }
 
 function volverAlInicio(){
