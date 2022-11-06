@@ -62,7 +62,6 @@ function comprobarRespuesta(opElegida){
         document.getElementById("l" + opElegida).className = "letra letraAcertada";
         cantidadAcertadas++;
     }else{//no acerto
-        lives--;
         //agramos las clases para colocar en rojo la opcion elegida
         document.getElementById("n" + opElegida).className = "nombre nombreNoAcertada";
         document.getElementById("l" + opElegida).className = "letra letraNoAcertada";
