@@ -1,3 +1,5 @@
+/* Declaracion de variables de todo el juego */
+
 //cargo en un arreglo las imganes de las banderas. Este sera el orden que se mostrarán
 let preguntas = ["pregunta1.PNG", "pregunta2.PNG", "pregunta3.PNG", "pregunta4.PNG", "pregunta5.PNG"];
 
@@ -17,7 +19,7 @@ opciones.push(["Sevilla FC", "Barcelona", "Madrid"]);
 let posActual = 0;
 //variable que guarda la cantidad acertadas hasta el moemento
 let cantidadAcertadas = 0;
-/*segundo Juego*/
+/* Variables de segundo Juego*/
     // Array de palabras
     var palabras = [["Sevilla", "Una Ciudad"], ["ordenador", "Algo que utilizamos siempre"], ["valorant", "Un juego de ordenador"], ["negro", "Un color"], ["felicidad", "Un estado"]];
     // Palabra a averiguar
@@ -34,23 +36,25 @@ let cantidadAcertadas = 0;
         var buttons = document.getElementsByClassName('letra');
     // Boton de reset
     var btnInicio = document.getElementById("reset");
+/**-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /* Tercer Juego*/
 var cartas = new Array( 
-  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Rodrigo', seleccion: false}, 
-  {nombre: 'Futbol', seleccion: false}, {nombre: 'Eugenia', seleccion: false}, 
-  {nombre: 'Maria Victoria', seleccion: false}, {nombre: 'Antonio', seleccion: false}, 
-  {nombre: 'Carlos Eduardo', seleccion: false}, {nombre: 'Carmen Elena', seleccion: false}, 
-  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Rodrigo', seleccion: false}, 
-  {nombre: 'Futbol', seleccion: false}, {nombre: 'Eugenia', seleccion: false}, 
-  {nombre: 'Maria Victoria', seleccion: false}, {nombre: 'Antonio', seleccion: false}, 
-  {nombre: 'Carlos Eduardo', seleccion: false}, {nombre: 'Carmen Elena', seleccion: false} );
+  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Azul', seleccion: false}, 
+  {nombre: 'Futbol', seleccion: false}, {nombre: 'Teclado', seleccion: false}, 
+  {nombre: 'Eusa', seleccion: false}, {nombre: 'Movil', seleccion: false}, 
+  {nombre: 'Ordenador', seleccion: false}, {nombre: 'Pantalla', seleccion: false}, 
+  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Azul', seleccion: false}, 
+  {nombre: 'Futbol', seleccion: false}, {nombre: 'Teclado', seleccion: false}, 
+  {nombre: 'Eusa', seleccion: false}, {nombre: 'Movil', seleccion: false}, 
+  {nombre: 'Ordenador', seleccion: false}, {nombre: 'Pantalla', seleccion: false} );
         
 var intentos = 0;
 var jugada1 = "";
 var jugada2 = "";
 var identificadorJ1 = "";
 var identificadorJ2 = "";
-
+/**----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/** Primer Juego  */
 document.getElementById("pantalla-juego2").style.display= "none";
 document.getElementById("pantalla-juego3").style.display= "none";
 function comenzarJuego(){
@@ -75,7 +79,6 @@ function cargarPregunta(){
     else{//cargo las opciones
         //limpiamos las clases que se asignaron
         limpiarOpciones();
-
         document.getElementById("imagen").src = "img/" + preguntas[posActual];
         document.getElementById("n0").innerHTML = opciones[posActual][0];
         document.getElementById("n1").innerHTML = opciones[posActual][1];
@@ -115,11 +118,15 @@ function terminarJuego(){
     //ocultamos las pantallas y mostramos la pantalla final
     document.getElementById("pantalla-juego").style.display = "none";
     document.getElementById("pantalla-final").style.display = "block";
+    document.getElementById("pantalla-juego2").style.display = "none";
+    document.getElementById("pantalla-juego3").style.display= "none";
     //agreamos los resultados
     document.getElementById("numCorrectas").innerHTML = cantidadAcertadas;
     document.getElementById("numIncorrectas").innerHTML = preguntas.length - cantidadAcertadas;
 }
+/**------------------------------------------------------------------------------------------------------ */
 
+/*Segundo Juego*/
 function irSegundoJuego(){
     //ocultamos las pantallas y activamos la inicial
     document.getElementById("pantalla-final").style.display = "none";
@@ -149,7 +156,7 @@ cont = 6;
       }
       
       //Generar abecedario
-      function generaABC (a,z) {
+function generaABC (a,z) {
         document.getElementById("abcdario").innerHTML = "";
         var i = a.charCodeAt(0), j = z.charCodeAt(0);
         var letra = "";
@@ -160,7 +167,7 @@ cont = 6;
             document.getElementById("abcdario").innerHTML += "<button value='Ñ' onclick='intento(\"Ñ\")' class='letra' id='"+letra+"'>Ñ</button>";
           }
         }
-      }
+}
       
       // Chequear intento
       function intento(letra) {
@@ -223,6 +230,8 @@ cont = 6;
       
       // Iniciar
       window.onload = inicio();
+/**------------------------------------------------------------------------------------------------------ */
+/*Tercer Juego*/
 function irTercerJuego(){
         //ocultamos las pantallas y activamos la inicial
         document.getElementById("pantalla-final").style.display = "none";
@@ -239,12 +248,10 @@ function irTercerJuego(){
         resetearJuego ();
         
 }
-console.profile()
-
+//Funcion para iniciar el juego.
 function iniciarJuego () {  
   var dato = document.getElementById("juego");
   dato.style.opacity = 1;
-
   cartas.sort(function() {return Math.random() - 0.5});
   for ( var i = 0 ; i < 16 ; i++ ) {
     var carta = cartas[i].nombre;
@@ -262,7 +269,7 @@ function resetearJuego () {
     colorCambio( i, 'black', '?');
   } 
 }
-
+//Funcion para girar las cartas
 function girarCarta () {
   var evento = window.event;
 
@@ -322,18 +329,16 @@ function comprobar () {
   }
 
   if(aciertos == 16){
-   document.getElementById("juego").innerHTML = "Felicidades Ganaste!!!";
+   /*document.getElementById("juego").innerHTML = "Felicidades Ganaste!!!";*/
+   alert("Has ganado");
      
   }
 }
-
-function resetearJuego () {
-            cartas.sort(function() { return Math.random() - 0.5});
-            for ( var i = 0; i < 16 ; i++ ) {
-                var carta = cartas[i].nombre;
-                var dato = document.getElementById( i.toString() );
-                dato.dataset.valor = carta;
-                colorCambio(i, 'black', '?');
-              console.profileEnd()
-            }
-};
+function irAlInicio(){
+  document.getElementById("pantalla-juego").style.display = "none";
+  document.getElementById("pantalla-inicial").style.display = "block";
+  document.getElementById("pantalla-final").style.display = "none";
+  document.getElementById("pantalla-juego2").style.display = "none";
+  document.getElementById("pantalla-juego3").style.display = "none";
+  
+}
