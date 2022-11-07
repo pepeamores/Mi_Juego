@@ -39,14 +39,14 @@ let cantidadAcertadas = 0;
 /**-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /* Tercer Juego*/
 var cartas = new Array( 
-  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Azul', seleccion: false}, 
-  {nombre: 'Futbol', seleccion: false}, {nombre: 'Teclado', seleccion: false}, 
-  {nombre: 'Eusa', seleccion: false}, {nombre: 'Movil', seleccion: false}, 
-  {nombre: 'Ordenador', seleccion: false}, {nombre: 'Pantalla', seleccion: false}, 
-  {nombre: 'Sevilla', seleccion: false}, {nombre: 'Azul', seleccion: false}, 
-  {nombre: 'Futbol', seleccion: false}, {nombre: 'Teclado', seleccion: false}, 
-  {nombre: 'Eusa', seleccion: false}, {nombre: 'Movil', seleccion: false}, 
-  {nombre: 'Ordenador', seleccion: false}, {nombre: 'Pantalla', seleccion: false} );
+  {nombre: 'Respeto', seleccion: false}, {nombre: 'Sinceridad', seleccion: false}, 
+  {nombre: 'Confianza', seleccion: false}, {nombre: 'Respeto', seleccion: false}, 
+  {nombre: 'Organización', seleccion: false}, {nombre: 'Responsabilidad', seleccion: false}, 
+  {nombre: 'Planificación', seleccion: false}, {nombre: 'Empeño', seleccion: false}, 
+  {nombre: 'Respeto', seleccion: false}, {nombre: 'Sinceridad', seleccion: false}, 
+  {nombre: 'Confianza', seleccion: false}, {nombre: 'Respeto', seleccion: false}, 
+  {nombre: 'Organización', seleccion: false}, {nombre: 'Responsabilidad', seleccion: false}, 
+  {nombre: 'Planificación', seleccion: false}, {nombre: 'Empeño', seleccion: false} );
         
 var intentos = 0;
 var jugada1 = "";
